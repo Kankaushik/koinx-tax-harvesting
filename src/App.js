@@ -64,11 +64,8 @@ function App() {
         <div className="flex items-center gap-3 mb-5">
           <h1 className="text-xl font-bold text-white">Tax Harvesting</h1>
           <div className="relative group">
-            <a
-              href="#"
-              className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              How it works?
+            <a href="#" className="text-blue-400 hover:underline">
+              Know More
             </a>
             <div className="absolute left-0 top-7 z-50 w-72 bg-[#1e293b] border border-gray-700 rounded-xl p-4 shadow-xl hidden group-hover:block">
               <p className="text-sm text-gray-300 leading-relaxed">
