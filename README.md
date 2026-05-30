@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# KoinX - Tax Loss Harvesting Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React application that simulates Tax Loss Harvesting by showing how selling selected crypto holdings at a loss can reduce your capital gains tax liability.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- **React.js** — UI library
+- **Tailwind CSS v3** — styling
+- **React Hooks** — state management (useState, useEffect, useMemo)
+- **Mock API** — simulated with Promises (no external server needed)
 
-### `npm start`
+## Folder Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+src/
+├── api/
+│ └── mockApi.js # Mock API
+├── components/
+│ ├── Header.jsx # Top navigation
+│ ├── CapitalGainsCard.jsx # Pre/After harvesting cards
+│ └── HoldingsTable.jsx # Holdings table
+├── hooks/
+│ └── useHarvesting.js # Core business logic hook
+├── App.js # Root component
+└── index.css
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Features
 
-### `npm test`
+Pre-Harvesting Summary – Shows your current capital gains and losses before selling any holdings, including short-term and long-term gains.
+After-Harvesting Summary – Updates instantly as you select holdings, helping you see the impact of tax-loss harvesting in real time.
+Holdings Table – Displays all investments with the ability to sort them by short-term gains.
+Row Selection – Select individual holdings using checkboxes to include them in tax-loss harvesting calculations.
+Select All Option – Quickly select or deselect all holdings with a single checkbox in the table header.
+View More / View Less – Expand the table to see all holdings or collapse it to show only the first seven.
+Tax Savings Indicator – Highlights potential tax savings when harvesting losses reduces your overall taxable gains.
+Loading and Error Handling – Shows a loading spinner while data is being fetched and provides a retry option if something goes wrong.
+Mobile-Friendly Design – Automatically adjusts the layout for a smooth experience on tablets and mobile devices.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Assumptions
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All monetary values are displayed in Indian Rupees (₹).
+A mock API with a 600ms delay is used to simulate real-world network requests.
+Holdings with extremely small gains or losses are displayed as "—" instead of insignificant numbers.
+When a holding is selected, the Amount to Sell field is automatically filled with the total available quantity.
+Sorting for Short-Term Gains follows three states: Default → Highest to Lowest → Lowest to Highest → Default.
